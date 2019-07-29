@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS demo_users;
+DROP TABLE IF EXISTS administrator, event;
 
-CREATE TABLE demo_users (
+CREATE TABLE administrator (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   username VARCHAR(50) NOT NULL,
   password VARCHAR(50) NOT NULL,
@@ -8,3 +8,5 @@ CREATE TABLE demo_users (
   lastname VARCHAR(50) NOT NULL,
   email VARCHAR(75) NOT NULL
 );
+
+C

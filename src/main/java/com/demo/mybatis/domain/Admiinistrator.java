@@ -7,6 +7,10 @@ public class Admiinistrator {
 	private String firstname;
 	private String lastname;
 	private String email;
+	
+	public Admiinistrator() {
+		super();
+	}
 
 	public String getUsername() {
 		return username;
