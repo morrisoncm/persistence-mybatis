@@ -1,13 +1,13 @@
 package com.demo.mybatis.config;
 
-public enum MyBatisType {
+public enum DatabaseType {
 
 	PACKAGE("com.demo.mybatis.mapper"),
 	DEVELOPMENT("Development");
 	
 	private String value;
 
-	private MyBatisType(String value) {
+	private DatabaseType(String value) {
 		this.value = value;
 	}
 

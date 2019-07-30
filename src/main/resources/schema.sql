@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS administrator, event;
+DROP TABLE IF EXISTS administrator;
 
 CREATE TABLE administrator (
   id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -8,5 +8,3 @@ CREATE TABLE administrator (
   lastname VARCHAR(50) NOT NULL,
   email VARCHAR(75) NOT NULL
 );
-
-C

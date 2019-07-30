@@ -1,15 +1,20 @@
 package com.demo.mybatis.domain;
 
-public class Admiinistrator {
+public class Administrator {
 
+	private String id;
 	private String username;
 	private String password;
 	private String firstname;
 	private String lastname;
 	private String email;
-	
-	public Admiinistrator() {
-		super();
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getUsername() {
@@ -71,7 +76,7 @@ public class Admiinistrator {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Admiinistrator other = (Admiinistrator) obj;
+		Administrator other = (Administrator) obj;
 		if (email == null) {
 			if (other.email != null)
 				return false;
