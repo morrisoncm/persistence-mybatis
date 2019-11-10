@@ -4,7 +4,11 @@ Sample Spring Boot MyBatis API with Junit 5
 <http://www.mybatis.org/mybatis-3/>
 
 ## Running the application
-Simply clone or download the project. The main starting point for the application is  <https://github.com/morrisoncm/springbootjdbc/blob/master/src/main/java/com/demo/jdbc/Application.java>
+To run the application from the command line change directory to  the project root directory and simply run gradle bootRun.
+To run the application inside Eclipse.
+Simply clone or download the project. 
+The main starting point for the application is  <https://github.com/morrisoncm/springbootjdbc/blob/master/src/main/java/com/demo/jdbc/Application.java>.
+right click the Application.java  and select Run As ->Java Application.
 
 ## Postman Scripts
 To test using Postman the scripts are in the following location <https://github.com/morrisoncm/springbootmybatis/blob/master/postman/demo%20-%20adminusers.postman_collection.json>.
