@@ -3,7 +3,7 @@ Sample Spring Boot MyBatis API with Junit 5
 
 <http://www.mybatis.org/mybatis-3/>
 
-## Workspace Setup
+## Workspace setup
 Download and install java <https://jdk.java.net/>  
 Setting JAVA_HOME  <https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html>  
 Download Eclipse <https://www.eclipse.org/downloads/packages/>  
@@ -17,8 +17,9 @@ To run the application inside Eclipse
 The starting point is Application.java  
 Right click the Application.java  and select Run As ->Java Application  
 
-## Postman Scripts
-To test using Postman the scripts are in the following location <https://github.com/morrisoncm/springbootmybatis/blob/master/postman/demo%20-%20adminusers.postman_collection.json>.
+## Testing the application
+Download and install postman <https://www.getpostman.com/downloads/>  
+The test scripts are under the project root directory in the postman folder
 
 ## Database - h2
 By default, Spring Boot will configure an H2 database for us  
