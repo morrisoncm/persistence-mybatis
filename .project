@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>springbootmybatis</name>
-	<comment>Project springbootmybatis created by Buildship.</comment>
+	<name>persistence-mybatis</name>
+	<comment>Project persistence-mybatis created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
