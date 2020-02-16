@@ -24,8 +24,8 @@ dependencies {
     compile("org.mybatis:mybatis:3.5.2")
     compile("com.google.code.gson:gson:2.8.5")
     compile("com.h2database:h2:1.4.199")
-    testCompile("org.springframework.boot:spring-boot-starter-test") 
-    testCompile("org.junit.jupiter:junit-jupiter-engine:5.1.0")  
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.junit.jupiter:junit-jupiter-engine:5.1.0")
 }
 
 test {

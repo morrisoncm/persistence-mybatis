@@ -4,10 +4,10 @@ public enum DatabaseType {
 
 	PACKAGE("com.demo.mybatis.mapper"),
 	DEVELOPMENT("Development");
-	
+
 	private String value;
 
-	private DatabaseType(String value) {
+	DatabaseType(String value) {
 		this.value = value;
 	}
 
