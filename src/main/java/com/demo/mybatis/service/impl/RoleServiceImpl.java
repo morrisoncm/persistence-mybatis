@@ -3,14 +3,14 @@ package com.demo.mybatis.service.impl;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import com.demo.mybatis.domain.Role;
-import com.demo.mybatis.exception.RoleFoundException;
-import com.demo.mybatis.exception.RoleNotFoundException;
 import com.demo.mybatis.repository.RoleRepository;
 import com.demo.mybatis.service.RoleService;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -22,11 +22,12 @@ public class RoleServiceImpl implements RoleService {
 	public Role getRole(String roleName) {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			RoleRepository roleRepository = session.getMapper(RoleRepository.class);
-			Role roleFromDb = roleRepository.getRoleByName(roleName);
-			if (ObjectUtils.isEmpty(roleFromDb)) {
-				throw new RoleNotFoundException();
+			Role roleFromDatabase = roleRepository.getRoleByName(roleName);
+			if (ObjectUtils.isEmpty(roleFromDatabase)) {
+				throw new ResponseStatusException(
+						HttpStatus.NOT_FOUND, "Role does not exist!");
 			}
-			return roleFromDb;
+			return roleFromDatabase;
 		}
 	}
 
@@ -34,8 +35,8 @@ public class RoleServiceImpl implements RoleService {
 	public void updateRole(Role role) {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			RoleRepository roleRepository = session.getMapper(RoleRepository.class);
-			Role roleFromDb = getRole(role.getRoleName());
-			if (!roleFromDb.equals(role)) {
+			Role roleFromDatabase = getRole(role.getRoleName());
+			if (!roleFromDatabase.equals(role)) {
 				roleRepository.updateRole(role);
 				session.commit();
 			}
@@ -47,7 +48,8 @@ public class RoleServiceImpl implements RoleService {
 		try (SqlSession session = sqlSessionFactory.openSession()) {
 			RoleRepository roleRepository = session.getMapper(RoleRepository.class);
 			if (!ObjectUtils.isEmpty(roleRepository.getRoleByName(role.getRoleName()))) {
-				throw new RoleFoundException();
+				throw new ResponseStatusException(
+						HttpStatus.FORBIDDEN, "Role already exists!");
 			}
 			roleRepository.registerRole(role);
 			session.commit();
