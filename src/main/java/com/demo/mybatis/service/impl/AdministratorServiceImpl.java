@@ -17,58 +17,58 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 public class AdministratorServiceImpl implements AdministratorService {
 
-	@Autowired
-	private SqlSessionFactory sqlSessionFactory;
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
-	@Override
-	@Transactional
-	public Administrator getAdministrator(String username) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
-			AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
-			Administrator administratorFromDb = administatorRepository.getAdministratorbyUsername(username);
-			if (ObjectUtils.isEmpty(administratorFromDb)) {
-				throw new ResponseStatusException(
-						HttpStatus.NOT_FOUND, "Administrator does not exist!");
-			}
-			return administratorFromDb;
-		}
-	}
+    @Override
+    @Transactional
+    public Administrator getAdministrator(String username) {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
+            Administrator administratorFromDb = administatorRepository.getAdministratorbyUsername(username);
+            if (ObjectUtils.isEmpty(administratorFromDb)) {
+                throw new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Administrator does not exist!");
+            }
+            return administratorFromDb;
+        }
+    }
 
-	@Override
-	@Transactional
-	public void updateAdministrator(Administrator administrator) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
-			AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
-			Administrator administratorFromDb = getAdministrator(administrator.getUsername());
-			if (!administratorFromDb.equals(administrator)) {
-				administatorRepository.updateAdministrator(administrator);
-				session.commit();
-			}
-		}
-	}
+    @Override
+    @Transactional
+    public void updateAdministrator(Administrator administrator) {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
+            Administrator administratorFromDb = getAdministrator(administrator.getUsername());
+            if (!administratorFromDb.equals(administrator)) {
+                administatorRepository.updateAdministrator(administrator);
+                session.commit();
+            }
+        }
+    }
 
-	@Override
-	@Transactional
-	public void registerAdministrator(Administrator administrator) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
-			AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
-			if (!ObjectUtils.isEmpty(administatorRepository.getAdministratorbyUsername(administrator.getUsername()))) {
-				throw new ResponseStatusException(
-						HttpStatus.FORBIDDEN, "Administrator already exists");
-			}
-			administatorRepository.registerAdministrator(administrator);
-			session.commit();
-		}
-	}
+    @Override
+    @Transactional
+    public void registerAdministrator(Administrator administrator) {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
+            if (!ObjectUtils.isEmpty(administatorRepository.getAdministratorbyUsername(administrator.getUsername()))) {
+                throw new ResponseStatusException(
+                        HttpStatus.FORBIDDEN, "Administrator already exists");
+            }
+            administatorRepository.registerAdministrator(administrator);
+            session.commit();
+        }
+    }
 
-	@Override
-	@Transactional
-	public void deleteAdministrator(String username) {
-		try (SqlSession session = sqlSessionFactory.openSession()) {
-			AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
-			getAdministrator(username);
-			administatorRepository.deleteAdministrator(username);
-			session.commit();
-		}
-	}
+    @Override
+    @Transactional
+    public void deleteAdministrator(String username) {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
+            AdministratorRepository administatorRepository = session.getMapper(AdministratorRepository.class);
+            getAdministrator(username);
+            administatorRepository.deleteAdministrator(username);
+            session.commit();
+        }
+    }
 }

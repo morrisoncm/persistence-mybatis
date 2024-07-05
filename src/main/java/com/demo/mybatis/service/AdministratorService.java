@@ -4,11 +4,11 @@ import com.demo.mybatis.domain.Administrator;
 
 public interface AdministratorService {
 
-	Administrator getAdministrator(String username);
+    Administrator getAdministrator(String username);
 
-	void updateAdministrator(Administrator administrator);
+    void updateAdministrator(Administrator administrator);
 
-	void registerAdministrator(Administrator administrator);
+    void registerAdministrator(Administrator administrator);
 
-	void deleteAdministrator(String username);
+    void deleteAdministrator(String username);
 }

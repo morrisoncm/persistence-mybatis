@@ -14,13 +14,13 @@ import com.demo.mybatis.repository.AdministratorRepository;
 @org.springframework.context.annotation.Configuration
 public class DatabaseConfig {
 
-	@Bean
-	public SqlSessionFactory getSqlSessionFactory(DataSource dataSource) {
-		Environment environment = new Environment(DatabaseType.DEVELOPMENT.getValue(), new JdbcTransactionFactory(),
-				dataSource);
-		Configuration configuration = new Configuration(environment);
-		configuration.addMapper(AdministratorRepository.class);
-		SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
-		return builder.build(configuration);
-	}
+    @Bean
+    public SqlSessionFactory getSqlSessionFactory(DataSource dataSource) {
+        Environment environment = new Environment(DatabaseType.DEVELOPMENT.getValue(), new JdbcTransactionFactory(),
+                dataSource);
+        Configuration configuration = new Configuration(environment);
+        configuration.addMapper(AdministratorRepository.class);
+        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+        return builder.build(configuration);
+    }
 }

@@ -10,27 +10,27 @@ import com.demo.mybatis.service.AdministratorService;
 @RequestMapping("/administrators")
 public class AdministratorController {
 
-	@Autowired
-	private AdministratorService administratorService;
+    @Autowired
+    private AdministratorService administratorService;
 
-	@GetMapping("/{username}")
-	public Administrator getAdministrator(@PathVariable String username) {
-		return administratorService.getAdministrator(username);
-	}
+    @GetMapping("/{username}")
+    public Administrator getAdministrator(@PathVariable String username) {
+        return administratorService.getAdministrator(username);
+    }
 
-	@PostMapping
-	public void registerAdministrator(@RequestBody Administrator administrator) {
-		administratorService.registerAdministrator(administrator);
-	}
+    @PostMapping
+    public void registerAdministrator(@RequestBody Administrator administrator) {
+        administratorService.registerAdministrator(administrator);
+    }
 
-	@PutMapping(path = "/{username}")
-	public void updateAdministrator(@RequestBody Administrator administrator, @PathVariable String username) {
-		administrator.setUsername(username);
-		administratorService.updateAdministrator(administrator);
-	}
+    @PutMapping(path = "/{username}")
+    public void updateAdministrator(@RequestBody Administrator administrator, @PathVariable String username) {
+        administrator.setUsername(username);
+        administratorService.updateAdministrator(administrator);
+    }
 
-	@DeleteMapping(path = "/{username}")
-	public void deleteAdministrator(@PathVariable String username) {
-		administratorService.deleteAdministrator(username);
-	}
+    @DeleteMapping(path = "/{username}")
+    public void deleteAdministrator(@PathVariable String username) {
+        administratorService.deleteAdministrator(username);
+    }
 }

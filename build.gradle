@@ -9,13 +9,13 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.1'
-	implementation 'org.springframework.boot:spring-boot-starter-web:3.3.1'
-	implementation 'org.mybatis:mybatis:3.5.16'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.1'
-	implementation 'com.h2database:h2:2.2.224'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.3.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.3.1'
+    implementation 'org.mybatis:mybatis:3.5.16'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.1'
+    implementation 'com.h2database:h2:2.2.224'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

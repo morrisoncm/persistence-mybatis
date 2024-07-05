@@ -4,11 +4,11 @@ import com.demo.mybatis.domain.Role;
 
 public interface RoleService {
 
-	Role getRole(String roleName);
+    Role getRole(String roleName);
 
-	void updateRole(Role role);
+    void updateRole(Role role);
 
-	void registerRole(Role role);
+    void registerRole(Role role);
 
-	void deleteRole(String roleName);
+    void deleteRole(String roleName);
 }
