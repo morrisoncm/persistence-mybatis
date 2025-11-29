@@ -2,6 +2,7 @@ package com.demo.mybatis.domain;
 
 public class Administrator {
 
+    private Integer id;
     private String administratorId;
     private String username;
     private String password;
@@ -9,6 +10,14 @@ public class Administrator {
     private String lastname;
     private String email;
     private Role role;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getAdministratorId() {
         return administratorId;

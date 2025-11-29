@@ -27,7 +27,7 @@ CREATE TABLE privilege (
   privilege_description VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE role_ privilege (
+CREATE TABLE role_privilege (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   roleId INT, FOREIGN KEY (roleId) REFERENCES role(id),
   privilegeId INT, FOREIGN KEY (privilegeId) REFERENCES privilege(id)
