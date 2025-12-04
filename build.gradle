@@ -1,17 +1,28 @@
 plugins {
     id 'org.springframework.boot' version '3.3.1'
+    id 'io.spring.dependency-management' version '1.1.5'
     id 'eclipse'
     id 'idea'
     id 'java'
 }
 
-apply plugin: 'io.spring.dependency-management'
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    // Use Java 23 toolchain
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
+}
 
 repositories {
     mavenCentral()
 }
+
 dependencies {
-    implementation 'com.h2database:h2:2.3.232'
+    // DB + MyBatis + JPA + Web
+    runtimeOnly 'com.h2database:h2'                   // Let Spring Boot manage H2 version
     implementation 'org.mybatis:mybatis:3.5.16'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -19,6 +30,10 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-test {
+tasks.withType(JavaCompile).configureEach {
+    options.release = 23
+}
+
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
